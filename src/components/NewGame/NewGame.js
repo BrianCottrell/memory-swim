@@ -1,11 +1,10 @@
 import React from 'react'
 
 const LevelLink = ({ children, onClick, type }) => {
-  const levelImage = require(`./images/level-${type}.svg`)
 
   return (
     <a onClick={onClick} className="NewGame__link">
-      <img src={levelImage} alt="Level Easy" />
+      <img src={"https://res.cloudinary.com/dhl3gjazr/image/upload/v1565319492/deep-dive/"+type+".png"} alt="Level" />
 
       {children}
     </a>
@@ -24,7 +23,7 @@ const NewGame = ({
     <ul>
       <li>
         <LevelLink
-          type="easy"
+          type="fishLantern1"
           onClick={() => onLevelSelect('easy')}
         >
           Easy
@@ -33,7 +32,7 @@ const NewGame = ({
 
       <li>
         <LevelLink
-          type="medium"
+          type="fishDragon1a"
           onClick={() => onLevelSelect('medium')}
         >
           Medium
@@ -42,7 +41,7 @@ const NewGame = ({
 
       <li>
         <LevelLink
-          type="hard"
+          type="fishAngler1a"
           onClick={() => onLevelSelect('hard')}
         >
           Hard
@@ -51,7 +50,7 @@ const NewGame = ({
 
       <li>
         <LevelLink
-          type="very-hard"
+          type="fishViper1a"
           onClick={() => onLevelSelect('very-hard')}
         >
           Very hard

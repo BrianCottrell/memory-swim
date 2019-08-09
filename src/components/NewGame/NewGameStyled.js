@@ -33,7 +33,7 @@ const NewGameStyled = styled(NewGame)`
     
     img {
       margin-bottom: 10px;
-      width: 100px;
+      height: 100px;
     }
   }
 `
