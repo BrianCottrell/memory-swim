@@ -1,12 +1,11 @@
 import React from 'react'
 
 const EndGame = ({ className }) => {
-  const wonImage = require('./images/you-won.svg')
 
   return (
     <div className={className}>
       <img
-        src={wonImage}
+        src="https://res.cloudinary.com/dhl3gjazr/image/upload/v1565319492/deep-dive/fishAngler1a.png"
         alt="You won"
         className="youWonImage"
       />
