@@ -73,6 +73,15 @@ export default class Profile extends Component {
                Submit
              </button>
            </div>
+           <div className="col-md-12 statuses">
+             {this.state.isLoading && <span>Loading...</span>}
+             {this.state.statuses.map((status) => (
+                 <div className="status" key={status.id}>
+                   {status.text}
+                 </div>
+               )
+             )}
+           </div>
          </div>
 
        </div>
@@ -87,6 +96,10 @@ export default class Profile extends Component {
       person: new Person(userSession.loadUserData().profile),
       username: userSession.loadUserData().username
     });
+  }
+
+  componentDidMount() {
+    this.fetchData()
   }
 
   handleNewStatusChange(event) {
@@ -118,5 +131,24 @@ export default class Profile extends Component {
           statuses: statuses
         })
       })
+  }
+
+  fetchData() {
+   const { userSession } = this.props
+   this.setState({ isLoading: true })
+   const options = { decrypt: false }
+   userSession.getFile('statuses.json', options)
+     .then((file) => {
+       var statuses = JSON.parse(file || '[]')
+       this.setState({
+         person: new Person(userSession.loadUserData().profile),
+         username: userSession.loadUserData().username,
+         statusIndex: statuses.length,
+         statuses: statuses,
+       })
+     })
+     .finally(() => {
+       this.setState({ isLoading: false })
+     })
   }
 }
