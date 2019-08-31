@@ -12,7 +12,7 @@ const Header = ({ className }) => (
         src={logo}
       />
 
-      Memory game
+      Deep Sea Memory game
     </div>
 
     <NavLink to="/menu" className="backToMenuLink">

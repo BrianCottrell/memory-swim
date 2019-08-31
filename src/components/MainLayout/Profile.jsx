@@ -77,7 +77,7 @@ export default class Profile extends Component {
              {this.state.isLoading && <span>Loading...</span>}
              {this.state.statuses.map((status) => (
                  <div className="status" key={status.id}>
-                   {status.text}
+                   {status.text + ' on ' + new Date(status.created_at).toDateString()}
                  </div>
                )
              )}
